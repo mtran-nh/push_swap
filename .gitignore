@@ -1,5 +1,5 @@
 .vscode
 a.out
-.o
+*.o
 .DS_Store
 .gitignore
