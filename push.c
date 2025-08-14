@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:28:05 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/13 18:02:32 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/08/14 10:39:17 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ static void	push(t_list **stack_1, t_list **stack_2)
 
 	temp = *stack_2;
 	*stack_2 = temp->next;
+	if (*stack_2)
+		(*stack_2)->prev = NULL;
 	temp->next = *stack_1;
+	if (*stack_1)
+		(*stack_1)->prev = temp;
+	temp->prev = NULL;
 	*stack_1 = temp;
 }
 
