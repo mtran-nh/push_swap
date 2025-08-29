@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:01:24 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/14 14:15:10 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/08/29 18:15:13 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sb(t_list **stack_b)
 void	ss(t_list **stack_a, t_list **stack_b)
 {
 	if ((!stack_a || !*stack_a || !(*stack_a)->next) || !stack_b || !*stack_b
-			|| !(*stack_b)->next)
+		|| !(*stack_b)->next)
 		return ;
 	swap(stack_a);
 	swap(stack_b);

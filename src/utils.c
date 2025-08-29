@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:53:13 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/14 10:41:14 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/08/29 18:15:23 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ t_list	*new_node(int n)
 	return (node);
 }
 
-void	append_node(t_list **stack, t_list *new)
+int	append_node(t_list **stack, t_list *new)
 {
 	t_list	*temp;
 
 	if (!stack || !new)
-		return ;
+		return (0);
 	if (!*stack)
 	{
 		*stack = new;
@@ -45,6 +45,7 @@ void	append_node(t_list **stack, t_list *new)
 		new->prev = temp;
 	}
 	new->next = NULL;
+	return (1);
 }
 
 void	free_stack(t_list **stack)
@@ -59,4 +60,16 @@ void	free_stack(t_list **stack)
 		free(*stack);
 		*stack = temp;
 	}
+}
+
+void	free_arr(char **arr)
+{
+	int	i;
+
+	if (!arr)
+		return ;
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 }
