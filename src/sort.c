@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 00:07:56 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/31 01:03:37 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/08/31 19:27:30 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,85 @@
 
 void	three_elements(t_list **stack_a)
 {
-	int x;
-	int y;
-	int z;
+	int	x;
+	int	y;
+	int	z;
 
 	x = (*stack_a)->index;
 	y = (*stack_a)->next->index;
 	z = (*stack_a)->next->next->index;
+	if (x < y && y > z && z > x)
+	{
+		sa(stack_a, 1);
+		ra(stack_a, 1);
+	}
+	else if (x > y && y < z && z > x)
+		sa(stack_a, 1);
+	else if (x < y && y > z && z < x)
+		rra(stack_a, 1);
+	else if (x > y && y > z && z < x)
+	{
+		sa(stack_a, 1);
+		rra(stack_a, 1);
+	}
+	else if (x > y && y < z && z < x)
+		ra(stack_a, 1);
+}
 
-	if (x < y && y > z && z > x) //132
+void	four_five_elements(t_list **stack_a, t_list **stack_b, int nums)
+{
+	int	push_b;
+
+	push_b = nums - 3;
+	while (push_b > 0)
 	{
-		sa(stack_a, 1);
-		ra(stack_a, 1);
+		if ((*stack_a)->index == 0 || (*stack_a)->index == 1)
+		{
+			pb(stack_a, stack_b, 1);
+			push_b--;
+		}
+		else
+			ra(stack_a, 1);
 	}
-	else if (x > y && y < z && z > x) //213
-		sa(stack_a, 1);
-	else if (x < y && y > z && z < x) //231
+	if (nums == 5 && (*stack_b)->index < (*stack_b)->next->index)
+		sb(stack_b, 1);
+	three_elements(stack_a);
+	while (*stack_b)
+		pa(stack_a, stack_b, 1);
+}
+
+int	check_sorted(t_list **stack_a)
+{
+	t_list	*head;
+
+	head = stack_a;
+	while (head && head->next)
 	{
-		ra(stack_a, 1);
-		ra(stack_a, 1);
+		if (head->index > head->next->index)
+			return (0);
+		head = head->next;
 	}
-	else if () //321
+	return (1);
+}
+
+void	sort_stack(t_list **stack_a, t_list **stack_b)
+{
+	int		size;
+
+	size = stack_size(*stack_a);
+	if (is_sorted(stack_a))
+		return ;
+	if (size == 1)
+		return ;
+	if (size == 2)
+	{
+		if ((*stack_a)->index > (*stack_a)->next->index)
+			sa(stack_a, 1);
+	}
+	else if (size == 3)
+		three_elements(stack_a);
+	else if (size == 4 || size == 5)
+		four_five_elements(stack_a, stack_b, size);
+	else
+		radix_sort(stack_a, stack_b, size);
 }
