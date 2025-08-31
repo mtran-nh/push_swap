@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:38:07 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/14 13:49:20 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/08/31 00:51:59 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,30 @@ static void	reverse_rotate(t_list **stack)
 	*stack = temp;
 }
 
-void	rra(t_list **stack_a)
+void	rra(t_list **stack_a, int print)
 {
 	if (!stack_a || !(*stack_a))
 		return ;
 	reverse_rotate(stack_a);
-	write(1, "rra\n", 4);
+	if (print == 1)
+		write(1, "rra\n", 4);
 }
 
-void	rrb(t_list **stack_b)
+void	rrb(t_list **stack_b, int print)
 {
 	if (!stack_b || !(*stack_b))
 		return ;
 	reverse_rotate(stack_b);
-	write(1, "rrb\n", 4);
+	if (print == 1)
+		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b)
+void	rrr(t_list **stack_a, t_list **stack_b, int print)
 {
 	if (!stack_a || !(*stack_a) || !stack_b || !(*stack_b))
 		return ;
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	write(1, "rrr\n", 4);
+	if (print == 1)
+		write(1, "rrr\n", 4);
 }

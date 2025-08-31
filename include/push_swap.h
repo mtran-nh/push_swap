@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:00:36 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/29 18:14:13 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/08/31 00:30:35 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;

@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:53:13 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/29 18:15:23 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/08/31 00:41:22 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,26 @@ void	free_arr(char **arr)
 	while (arr[i])
 		free(arr[i++]);
 	free(arr);
+}
+
+void	set_index(t_list *stack, int size)
+{
+	t_list	*current;
+	t_list	*other;
+	int		index;
+
+	current = stack;
+	while (current)
+	{
+		index = 0;
+		other = stack;
+		while (other)
+		{
+			if (current->index > other->index)
+				index++;
+			other = other->next;
+		}
+		current->index = index;
+		current = current->next;
+	}
 }
