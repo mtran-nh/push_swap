@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
+/*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:53:13 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/31 00:41:22 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:52:55 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*new_node(int n)
+t_stack	*new_node(int n)
 {
-	t_list	*node;
+	t_stack	*node;
 
-	node = (t_list *)malloc(sizeof(t_list));
+	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
 		return (NULL);
 	node->content = n;
@@ -25,9 +25,9 @@ t_list	*new_node(int n)
 	return (node);
 }
 
-int	append_node(t_list **stack, t_list *new)
+int	append_node(t_stack **stack, t_stack *new)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!stack || !new)
 		return (0);
@@ -48,9 +48,9 @@ int	append_node(t_list **stack, t_list *new)
 	return (1);
 }
 
-void	free_stack(t_list **stack)
+void	free_stack(t_stack **stack)
 {
-	t_list	*temp;
+	t_stack	*temp;
 
 	if (!stack)
 		return ;
@@ -74,10 +74,10 @@ void	free_arr(char **arr)
 	free(arr);
 }
 
-void	set_index(t_list *stack, int size)
+void	set_index(t_stack *stack)
 {
-	t_list	*current;
-	t_list	*other;
+	t_stack	*current;
+	t_stack	*other;
 	int		index;
 
 	current = stack;

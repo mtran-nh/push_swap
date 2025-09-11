@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
+/*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:43:44 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/31 00:52:58 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:36:14 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_list **stack)
+static void	rotate(t_stack **stack)
 {
-	t_list	*temp;
-	t_list	*last;
+	t_stack	*temp;
+	t_stack	*last;
 
 	temp = *stack;
 	*stack = temp->next;
@@ -28,7 +28,7 @@ static void	rotate(t_list **stack)
 	temp->next = NULL;
 }
 
-void	ra(t_list **stack_a, int print)
+void	ra(t_stack **stack_a, int print)
 {
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
@@ -37,7 +37,7 @@ void	ra(t_list **stack_a, int print)
 		write(1, "ra\n", 3);
 }
 
-void	rb(t_list **stack_b, int print)
+void	rb(t_stack **stack_b, int print)
 {
 	if (!stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
@@ -46,7 +46,7 @@ void	rb(t_list **stack_b, int print)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_list **stack_a, t_list **stack_b, int print)
+void	rr(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	if ((!stack_a || !*stack_a || !(*stack_a)->next) || (!stack_b || !*stack_b
 			|| !(*stack_b)->next))

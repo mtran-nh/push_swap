@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
+/*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 16:31:27 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/29 18:14:54 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:45:30 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	check_dup(t_list *stack)
+int	check_dup(t_stack *stack)
 {
-	t_list	*check;
-	t_list	*now;
+	t_stack	*check;
+	t_stack	*now;
 
 	now = stack;
 	while (now)
@@ -90,7 +90,7 @@ static int	valid_num(char *s)
 	return (1);
 }
 
-int	check_input(char *input, t_list **stack_a)
+int	check_input(char *input, t_stack **stack_a)
 {
 	int		i;
 	char	**nums;
@@ -110,7 +110,7 @@ int	check_input(char *input, t_list **stack_a)
 		if (value > INT_MAX || value < INT_MIN)
 			return (free_arr(nums), 0);
 		if (!append_node(stack_a, new_node((int)value)))
-			return (free_arr(nums), (stack_a), 0);
+			return (free_arr(nums), free(stack_a), 0);
 	}
 	free_arr(nums);
 	if (check_dup(*stack_a))

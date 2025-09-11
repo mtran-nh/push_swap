@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
+/*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:00:36 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/31 19:25:54 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:53:07 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +20,42 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct s_stack
 {
 	int				content;
 	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}					t_list;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}					t_stack;
 
-t_list				*new_node(int n);
-int					append_node(t_list **stack, t_list *new);
-void				free_stack(t_list **stack);
+t_stack				*new_node(int n);
+int					append_node(t_stack **stack, t_stack *new);
+void				free_stack(t_stack **stack);
 void				free_arr(char **arr);
-void				set_index(t_list *stack, int size);
+void				set_index(t_stack *stack);
 
-void				sa(t_list **stack_a, int print);
-void				sb(t_list **stack_b, int print);
-void				pa(t_list **stack_a, t_list **stack_b, int print);
-void				pb(t_list **stack_a, t_list **stack_b, int print);
-void				ra(t_list **stack_a, int print);
-void				rb(t_list **stack_b, int print);
-void				rr(t_list **stack_a, t_list **stack_b, int print);
-void				rra(t_list **stack_a, int print);
-void				rrb(t_list **stack_b, int print);
-void				rrr(t_list **stack_a, t_list **stack_b, int print);
+void				sa(t_stack **stack_a, int print);
+void				sb(t_stack **stack_b, int print);
+void				pa(t_stack **stack_a, t_stack **stack_b, int print);
+void				pb(t_stack **stack_a, t_stack **stack_b, int print);
+void				ra(t_stack **stack_a, int print);
+void				rb(t_stack **stack_b, int print);
+void				rr(t_stack **stack_a, t_stack **stack_b, int print);
+void				rra(t_stack **stack_a, int print);
+void				rrb(t_stack **stack_b, int print);
+void				rrr(t_stack **stack_a, t_stack **stack_b, int print);
 
-int					check_dup(t_list *stack);
+int					check_dup(t_stack *stack);
 char				*create_input(char **argv);
-int					check_input(char *input, t_list **stack_a);
+int					check_input(char *input, t_stack **stack_a);
 
 
-int					stack_size(t_list *stack);
-void				radix_sort(t_list **stack_a, t_list **stack_b, int size);
-void				three_elements(t_list **stack_a);
-void				four_five_elements(t_list **stack_a, t_list **stack_b,
+int					stack_size(t_stack *stack);
+void				radix_sort(t_stack **stack_a, t_stack **stack_b, int size);
+void				three_elements(t_stack **stack_a);
+void				four_five_elements(t_stack **stack_a, t_stack **stack_b,
 						int nums);
-int					check_sorted(t_list **stack_a);
-void				sort_stack(t_list **stack_a, t_list **stack_b);
+int					check_sorted(t_stack **stack_a);
+void				sort_stack(t_stack **stack_a, t_stack **stack_b);
 
 #endif

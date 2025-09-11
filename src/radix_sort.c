@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
+/*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 15:47:45 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/31 19:26:10 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:48:30 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	get_max_bits(t_list *stack)
+static int	get_max_bits(t_stack *stack)
 {
 	int		max;
-	t_list	*tmp;
+	t_stack	*tmp;
 	int		bits;
 
 	max = 0;
@@ -24,7 +24,7 @@ static int	get_max_bits(t_list *stack)
 	{
 		if (tmp->index > max)
 			max = tmp->index;
-		tmp = tmp->index;
+		tmp = tmp->next;
 	}
 	bits = 0;
 	while (!(max >> bits))
@@ -32,7 +32,7 @@ static int	get_max_bits(t_list *stack)
 	return (bits);
 }
 
-int	stack_size(t_list *stack)
+int	stack_size(t_stack *stack)
 {
 	int	count;
 
@@ -45,7 +45,7 @@ int	stack_size(t_list *stack)
 	return (count);
 }
 
-void	radix_sort(t_list **stack_a, t_list **stack_b, int size)
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
 	int	i;
 	int	j;

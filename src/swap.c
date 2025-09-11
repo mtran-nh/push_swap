@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
+/*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:01:24 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/31 00:53:55 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:37:55 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(t_list **stack)
+static void	swap(t_stack **stack)
 {
-	t_list	*first;
-	t_list	*second;
+	t_stack	*first;
+	t_stack	*second;
 
 	first = *stack;
 	second = first->next;
@@ -27,7 +27,7 @@ static void	swap(t_list **stack)
 	*stack = second;
 }
 
-void	sa(t_list **stack_a, int print)
+void	sa(t_stack **stack_a, int print)
 {
 	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
 		return ;
@@ -36,7 +36,7 @@ void	sa(t_list **stack_a, int print)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_list **stack_b, int print)
+void	sb(t_stack **stack_b, int print)
 {
 	if (!stack_b || !(*stack_b) || !(*stack_b)->next)
 		return ;
@@ -45,7 +45,7 @@ void	sb(t_list **stack_b, int print)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b, int print)
+void	ss(t_stack **stack_a, t_stack **stack_b, int print)
 {
 	if ((!stack_a || !*stack_a || !(*stack_a)->next) || !stack_b || !*stack_b
 		|| !(*stack_b)->next)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtran-nh <mtran-nh@student.42heilbronn.de> +#+  +:+       +#+        */
+/*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 00:07:56 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/08/31 19:27:30 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:51:16 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	three_elements(t_list **stack_a)
+void	three_elements(t_stack **stack_a)
 {
 	int	x;
 	int	y;
@@ -39,7 +39,7 @@ void	three_elements(t_list **stack_a)
 		ra(stack_a, 1);
 }
 
-void	four_five_elements(t_list **stack_a, t_list **stack_b, int nums)
+void	four_five_elements(t_stack **stack_a, t_stack **stack_b, int nums)
 {
 	int	push_b;
 
@@ -61,11 +61,11 @@ void	four_five_elements(t_list **stack_a, t_list **stack_b, int nums)
 		pa(stack_a, stack_b, 1);
 }
 
-int	check_sorted(t_list **stack_a)
+int	check_sorted(t_stack **stack_a)
 {
-	t_list	*head;
+	t_stack	*head;
 
-	head = stack_a;
+	head = (*stack_a);
 	while (head && head->next)
 	{
 		if (head->index > head->next->index)
@@ -75,12 +75,12 @@ int	check_sorted(t_list **stack_a)
 	return (1);
 }
 
-void	sort_stack(t_list **stack_a, t_list **stack_b)
+void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int		size;
 
 	size = stack_size(*stack_a);
-	if (is_sorted(stack_a))
+	if (check_sorted (stack_a))
 		return ;
 	if (size == 1)
 		return ;
