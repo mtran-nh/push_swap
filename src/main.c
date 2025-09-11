@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 19:28:00 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 13:53:13 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:06:04 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	if (!check_input(input, &stack_a))
 	{
 		free(input);
-		write(1, "ERROR\n", 6);
+		write(1, "Invalid input\n", 15);
 		return (1);
 	}
 	free(input);

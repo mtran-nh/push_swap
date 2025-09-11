@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 15:47:45 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 13:48:30 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:22:50 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	get_max_bits(t_stack *stack)
 		tmp = tmp->next;
 	}
 	bits = 0;
-	while (!(max >> bits))
+	while (max >> bits)
 		bits++;
 	return (bits);
 }

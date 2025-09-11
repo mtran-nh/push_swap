@@ -6,11 +6,11 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:43:44 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 13:36:14 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 15:02:06 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static void	rotate(t_stack **stack)
 {

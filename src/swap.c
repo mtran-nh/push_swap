@@ -6,11 +6,11 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:01:24 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 13:37:55 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 15:02:16 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 static void	swap(t_stack **stack)
 {

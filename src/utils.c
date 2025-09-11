@@ -6,11 +6,11 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:53:13 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 13:52:55 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/11 16:00:44 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 t_stack	*new_node(int n)
 {
@@ -87,7 +87,7 @@ void	set_index(t_stack *stack)
 		other = stack;
 		while (other)
 		{
-			if (current->index > other->index)
+			if (current->content > other->content)
 				index++;
 			other = other->next;
 		}
