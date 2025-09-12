@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 00:07:56 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 13:51:16 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/12 21:07:55 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,5 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 	else if (size == 4 || size == 5)
 		four_five_elements(stack_a, stack_b, size);
 	else
-		radix_sort(stack_a, stack_b, size);
+		radix_sort(stack_a, stack_b);
 }
