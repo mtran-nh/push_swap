@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:00:36 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/12 21:08:10 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/13 14:28:02 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char				*create_input(char **argv);
 int					check_input(char *input, t_stack **stack_a);
 
 int					stack_size(t_stack *stack);
-void				radix_sort(t_stack **stack_a, t_stack **stack_b);
+void				radix_sort(t_stack **stack_a, t_stack **stack_b, int chunk_count);
 void				three_elements(t_stack **stack_a);
 void				four_five_elements(t_stack **stack_a, t_stack **stack_b,
 						int nums);

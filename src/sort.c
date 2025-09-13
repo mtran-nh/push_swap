@@ -6,11 +6,24 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 00:07:56 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/12 21:07:55 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/13 14:36:47 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	stack_size(t_stack *stack)
+{
+	int	count;
+
+	count = 0;
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (count);
+}
 
 void	three_elements(t_stack **stack_a)
 {
@@ -94,5 +107,10 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 	else if (size == 4 || size == 5)
 		four_five_elements(stack_a, stack_b, size);
 	else
-		radix_sort(stack_a, stack_b);
+	{
+		if (size <= 100)
+			radix_sort(stack_a, stack_b, 5);
+		else
+			radix_sort(stack_a, stack_b, 12);
+	}
 }
