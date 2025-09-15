@@ -6,7 +6,7 @@
 #    By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 18:34:03 by mtran-nh          #+#    #+#              #
-#    Updated: 2025/09/11 13:29:45 by mtran-nh         ###   ########.fr        #
+#    Updated: 2025/09/15 18:54:03 by mtran-nh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ INCLUDES = -I include/ -I $(LIBFT_DIR)
 SRC = 	$(SRC_DIR)input.c \
 		$(SRC_DIR)main.c \
 		$(SRC_DIR)radix_sort.c \
+		$(SRC_DIR)chunk_sort.c \
 		$(SRC_DIR)sort.c \
 		$(SRC_DIR)utils.c \
 		$(SRC_DIR)push.c \

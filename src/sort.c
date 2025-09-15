@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 00:07:56 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/13 14:36:47 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/15 19:17:55 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 	else
 	{
 		if (size <= 100)
-			radix_sort(stack_a, stack_b, 5);
+			chunk_sort(stack_a, stack_b, 5);
 		else
-			radix_sort(stack_a, stack_b, 12);
+			radix_sort(stack_a, stack_b);
 	}
 }
