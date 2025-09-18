@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:00:36 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/15 18:53:41 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:33:43 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,20 @@ int					check_dup(t_stack *stack);
 char				*create_input(char **argv);
 int					check_input(char *input, t_stack **stack_a);
 
-void				radix_sort(t_stack **stack_a, t_stack **stack_b);
-void				chunk_sort(t_stack **a, t_stack **b, int chunk_count);
-
 int					stack_size(t_stack *stack);
 void				three_elements(t_stack **stack_a);
 void				four_five_elements(t_stack **stack_a, t_stack **stack_b,
 						int nums);
 int					check_sorted(t_stack **stack_a);
 void				sort_stack(t_stack **stack_a, t_stack **stack_b);
+
+void				push_swap(t_stack **a, t_stack **b);
+int					get_pos(t_stack *stack, t_stack *node);
+int					is_above_median(t_stack *stack, t_stack *node);
+t_stack				*find_smallest(t_stack *stack);
+
+void				apply_rotation(t_stack **a, t_stack **b, int *ca, int *cb);
+void				move_nodes(t_stack **a, t_stack **b);
+void				return_cheapest(t_stack *a, t_stack *b, int *out_costs);
 
 #endif
