@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 19:28:00 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 16:06:04 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/19 14:57:53 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ int	main(int ac, char **av)
 	free(input);
 	set_index(stack_a);
 	sort_stack(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }

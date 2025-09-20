@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 16:31:27 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 16:12:41 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/19 14:58:29 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	check_input(char *input, t_stack **stack_a)
 			return (free_arr(nums), free_stack(stack_a), 0);
 		value = ft_atol(nums[i]);
 		if (value > INT_MAX || value < INT_MIN)
-			return (free_arr(nums), 0);
+			return (free_arr(nums), free_stack(stack_a), 0);
 		if (!append_node(stack_a, new_node((int)value)))
 			return (free_arr(nums), free_stack(stack_a), 0);
 	}

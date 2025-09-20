@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 00:07:56 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/18 19:04:46 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/20 22:43:56 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ int	check_sorted(t_stack **stack_a)
 	t_stack	*head;
 
 	head = (*stack_a);
+	if (!head)
+		return (1);
 	while (head && head->next)
 	{
 		if (head->index > head->next->index)

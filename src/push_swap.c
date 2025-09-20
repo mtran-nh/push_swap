@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 19:01:36 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/18 19:27:35 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/19 15:10:38 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,23 @@ t_stack	*find_smallest(t_stack *stack)
 	return (min);
 }
 
-void	push_swap(t_stack **a, t_stack **b)
+void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*smallest;
 
-	if (stack_size(*a) == 5)
-		four_five_elements(a, b, 5);
+	if (stack_size(*stack_a) == 5)
+		four_five_elements(stack_a, stack_b, 5);
 	else
-		while (stack_size(*a) > 3)
-			pb(a, b, 1);
-	three_elements(a);
-	while (*b)
-		move_nodes(a, b);
-	smallest = find_smallest(*a);
-	if (is_above_median(*a, smallest))
-		while (*a != smallest)
-			ra(a, 1);
+		while (stack_size(*stack_a) > 3)
+			pb(stack_a, stack_b, 1);
+	three_elements(stack_a);
+	while (*stack_b)
+		move_nodes(stack_a, stack_b);
+	smallest = find_smallest(*stack_a);
+	if (is_above_median(*stack_a, smallest))
+		while (*stack_a != smallest)
+			ra(stack_a, 1);
 	else
-		while (*a != smallest)
-			rra(a, 1);
+		while (*stack_a != smallest)
+			rra(stack_a, 1);
 }

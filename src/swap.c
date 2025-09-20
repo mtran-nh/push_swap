@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:01:24 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 15:02:16 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/19 15:18:29 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ static void	swap(t_stack **stack)
 	t_stack	*first;
 	t_stack	*second;
 
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	first = *stack;
 	second = first->next;
+	first->next = second->next;
 	if (second->next)
 		second->next->prev = first;
 	second->next = first;

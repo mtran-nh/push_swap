@@ -6,7 +6,7 @@
 #    By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 15:34:43 by mtran-nh          #+#    #+#              #
-#    Updated: 2025/09/11 13:46:51 by mtran-nh         ###   ########.fr        #
+#    Updated: 2025/09/20 22:01:06 by mtran-nh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
 ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-ft_atol.c
+ft_atol.c ft_strndup.c ft_strcmp.c
 
 OBJS = $(SRC:.c=.o)
 
