@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 19:23:56 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/20 22:51:09 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/21 15:47:38 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,22 @@ static int	apply_operations(char *instr, t_stack **stack_a, t_stack **stack_b)
 	return (1);
 }
 
+static int	check_sorted_checker(t_stack **stack_a)
+{
+	t_stack	*head;
+
+	head = *stack_a;
+	if (!head)
+		return (1);
+	while (head && head->next)
+	{
+		if (head->content > head->next->content)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -62,7 +78,7 @@ int	main(int ac, char **av)
 		free(instr);
 		instr = get_next_line(0);
 	}
-	if (check_sorted(&stack_a) && !stack_b)
+	if (check_sorted_checker(&stack_a) && !stack_b)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);

@@ -6,86 +6,91 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 19:15:19 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/20 22:46:22 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/21 15:46:47 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static char	*gnl_join(char *s1, char *s2, int len2)
+static char	*read_until_nl(int fd, char *remain)
 {
-	int		len1;
-	char	*res;
-	int		i;
+	char	buf[BUFFER_SIZE + 1];
+	char	*result;
+	char	*tmp;
+	int		bytes;
 
-	len1 = 0;
-	if (s1)
-		while (s1[len1])
-			len1++;
-	res = malloc(len1 + len2 + 1);
-	if (!res)
+	result = ft_strdup(remain);
+	if (!result)
 		return (NULL);
-	i = -1;
-	while (++i < len1)
-		res[i] = s1[i];
-	i = -1;
-	while (++i < len2)
-		res[len1 + i] = s2[i];
-	res[len1 + len2] = 0;
-	if (s1)
-		free(s1);
-	return (res);
-}
-
-static char	*extract_line(char **remain)
-{
-	char	*line;
-	char	*new_remain;
-	char	*nl;
-	size_t	len;
-
-	if (!*remain || !**remain)
-		return (NULL);
-	nl = ft_strchr(*remain, '\n');
-	if (nl)
-		len = nl - *remain + 1;
-	else
-		len = ft_strlen(*remain);
-	line = ft_strndup(*remain, len);
-	if (!line)
-		return (NULL);
-	if (nl)
-	{
-		new_remain = ft_strdup(*remain + len);
-		if (!new_remain)
-			return (free(line), NULL);
-	}
-	free(*remain);
-	*remain = new_remain;
-	return (line);
-}
-
-char	*get_next_line(int fd)
-{
-	static char	*remain;
-	char		buf[BUFFER_SIZE];
-	char		*line;
-	int			bytes;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	while (!remain || !ft_strchr(remain, '\n'))
+	remain[0] = '\0';
+	bytes = 1;
+	while (!ft_strchr(result, '\n') && bytes > 0)
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes <= 0)
 			break ;
 		buf[bytes] = '\0';
-		remain = gnl_join(remain, buf, bytes);
-		if (!remain)
+		tmp = result;
+		result = ft_strjoin(tmp, buf);
+		free(tmp);
+		if (!result)
 			return (NULL);
 	}
-	if (!remain || !*remain)
+	return (result);
+}
+
+static void	new_remain(char *remain, char *line)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (line[i] && line[i] != '\n')
+		i++;
+	if (line[i] == '\n')
+		i++;
+	while (line[i] && j < BUFFER_SIZE)
+		remain[j++] = line[i++];
+	remain[j] = '\0';
+}
+
+static char	*extract_line(char *buffer)
+{
+	int		len;
+	char	*line;
+	int		i;
+
+	len = 0;
+	if (!buffer || buffer[0] == '\0')
 		return (NULL);
-	line = extract_line(&remain);
+	while (buffer[len] && buffer[len] != '\n')
+		len++;
+	if (buffer[len] == '\n')
+		len++;
+	line = malloc(len + 1);
+	if (!line)
+		return (NULL);
+	i = -1;
+	while (++i < len)
+		line[i] = buffer[i];
+	line[len] = '\0';
+	return (line);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	remain[BUFFER_SIZE + 1];
+	char		*buffer;
+	char		*line;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	buffer = read_until_nl(fd, remain);
+	if (!buffer)
+		return (NULL);
+	save_remain(remain, buffer);
+	line = extract_line(buffer);
+	free(buffer);
 	return (line);
 }
