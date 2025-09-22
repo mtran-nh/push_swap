@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:38:07 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 15:02:01 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/22 13:25:14 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	reverse_rotate(t_stack **stack)
 
 	first = *stack;
 	temp = *stack;
+	if (!stack || !(*stack))
+		return ;
 	while (temp->next)
 		temp = temp->next;
 	temp->prev->next = NULL;

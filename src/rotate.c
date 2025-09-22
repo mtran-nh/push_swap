@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 16:43:44 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/11 15:02:06 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/22 13:25:41 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	rotate(t_stack **stack)
 	t_stack	*temp;
 	t_stack	*last;
 
+	if (!stack || !(*stack))
+		return ;
 	temp = *stack;
 	*stack = temp->next;
 	(*stack)->prev = NULL;

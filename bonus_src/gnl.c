@@ -6,7 +6,7 @@
 /*   By: mtran-nh <mtran-nh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 19:15:19 by mtran-nh          #+#    #+#             */
-/*   Updated: 2025/09/21 15:46:47 by mtran-nh         ###   ########.fr       */
+/*   Updated: 2025/09/22 13:24:16 by mtran-nh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*get_next_line(int fd)
 	buffer = read_until_nl(fd, remain);
 	if (!buffer)
 		return (NULL);
-	save_remain(remain, buffer);
+	new_remain(remain, buffer);
 	line = extract_line(buffer);
 	free(buffer);
 	return (line);
